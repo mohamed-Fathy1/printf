@@ -1,86 +1,77 @@
 #include "main.h"
 
 /**
- * is_printable - Evaluates if a char is printable
- * @c: Char to be evaluated.
- *
- * Return: 1 if c is printable, 0 otherwise
+ * appendHexaCode - hexadecimal code to buffer
+ * @buffer: input
+ * @j: input
+ * @asciiCode: input
+ * Return: int
  */
-int is_printable(char c)
+int appendHexaCode(char asciiCode, char buffer[], int j)
 {
-	if (c >= 32 && c < 127)
-		return (1);
+	char mapto[] = "0123456789ABCDEF";
 
-	return (0);
-}
-
-/**
- * append_hexa_code - Append ascci in hexadecimal code to buffer
- * @buffer: Array of chars.
- * @i: Index at which to start appending.
- * @ascii_code: ASSCI CODE.
- * Return: Always 3
- */
-int append_hexa_code(char ascii_code, char buffer[], int i)
-{
-	char map_to[] = "0123456789ABCDEF";
-	/* The hexa format code is always 2 digits long */
-	if (ascii_code < 0)
-		ascii_code *= -1;
-
-	buffer[i++] = '\\';
-	buffer[i++] = 'x';
-
-	buffer[i++] = map_to[ascii_code / 16];
-	buffer[i] = map_to[ascii_code % 16];
-
+	if (asciiCode < 0)
+		asciiCode *= -1;
+	buffer[j++] = '\\';
+	buffer[j++] = 'x';
+	buffer[j++] = mapto[asciiCode / 16];
+	buffer[j] = mapto[asciiCode % 16];
 	return (3);
 }
 
 /**
- * is_digit - Verifies if a char is a digit
- * @c: Char to be evaluated
- *
- * Return: 1 if c is a digit, 0 otherwise
+ * isDigit - is a digit
+ * @character: input
+ * Return: int
  */
-int is_digit(char c)
+int isDigit(char character)
 {
-	if (c >= '0' && c <= '9')
+	if (character >= '0' && character <= '9')
 		return (1);
-
 	return (0);
 }
 
-/**
- * convert_size_number - Casts a number to the specified size
- * @num: Number to be casted.
- * @size: Number indicating the type to be casted.
- *
- * Return: Casted value of num
- */
-long int convert_size_number(long int num, int size)
-{
-	if (size == S_LONG)
-		return (num);
-	else if (size == S_SHORT)
-		return ((short)num);
 
-	return ((int)num);
+/**
+ * conv_sizeUnsgnd - specified size
+ * @n: input
+ * @size: input
+ * Return: long int
+ */
+long int conv_sizeUnsgnd(unsigned long int n, int size)
+{
+	if (size == LONG)
+		return (n);
+	else if (size == SHORT)
+		return ((unsigned short)n);
+	return ((unsigned int)n);
 }
 
 /**
- * convert_size_unsgnd - Casts a number to the specified size
- * @num: Number to be casted
- * @size: Number indicating the type to be casted
- *
- * Return: Casted value of num
+ * conv_sizeNumber - specified size
+ * @n: input
+ * @size: input
+ * Return: long int
  */
-long int convert_size_unsgnd(unsigned long int num, int size)
+long int conv_sizeNumber(long int n, int size)
 {
-	if (size == S_LONG)
-		return (num);
-	else if (size == S_SHORT)
-		return ((unsigned short)num);
+	if (size == LONG)
+		return (n);
+	else if (size == SHORT)
+		return ((short)n);
+	return ((int)n);
+}
 
-	return ((unsigned int)num);
+
+/**
+ * isPrintable - char is printable
+ * @character: input
+ * Return: input
+ */
+int isPrintable(char character)
+{
+	if (character >= 32 && character < 127)
+		return (1);
+	return (0);
 }
