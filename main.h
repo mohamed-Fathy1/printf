@@ -64,8 +64,7 @@ int print_Char(va_list, char [],
 	int, int, int, int);
 int printString(va_list, char [],
 	int, int, int, int);
-int printPercent(void);
-
+int printPercent(va_list, char [],int, int, int, int);
 int printInt(va_list, char [],
 	int, int, int, int);
 int printBinary(va_list, char [],

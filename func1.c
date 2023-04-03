@@ -104,8 +104,15 @@ int printString(va_list type, char buffer[],
  * printPercent - percent sign
  * Return: int
  */
-int printPercent(void)
+int printPercent(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
+	NOT_USED(types);
+	NOT_USED(buffer);
+	NOT_USED(flags);
+	NOT_USED(width);
+	NOT_USED(precision);
+	NOT_USED(size);
 	return (write(1, "%%", 1));
 }
 
