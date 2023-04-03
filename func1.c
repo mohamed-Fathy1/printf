@@ -102,16 +102,22 @@ int printString(va_list type, char buffer[],
 }
 /**
  * printPercent - percent sign
+ * @type: input
+ * @buffer: input
+ * @flag: input
+ * @width: input
+ * @prec: input
+ * @size: input
  * Return: int
  */
-int printPercent(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int printPercent(va_list type, char buffer[],
+	int flag, int width, int prec, int size)
 {
-	NOT_USED(types);
+	NOT_USED(type);
 	NOT_USED(buffer);
-	NOT_USED(flags);
+	NOT_USED(flag);
 	NOT_USED(width);
-	NOT_USED(precision);
+	NOT_USED(prec);
 	NOT_USED(size);
 	return (write(1, "%%", 1));
 }

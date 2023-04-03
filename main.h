@@ -56,15 +56,15 @@ int isPrintable(char);
 int appendHexaCode(char, char[], int);
 int isDigit(char);
 
-long int conv_sizeNumber(long int num, int size);
-long int conv_sizeUnsgnd(unsigned long int num, int size);
+long int conv_sizeNumber(long int, int);
+long int conv_sizeUnsgnd(unsigned long int, int);
 
 
 int print_Char(va_list, char [],
 	int, int, int, int);
 int printString(va_list, char [],
 	int, int, int, int);
-int printPercent(va_list, char [],int, int, int, int);
+int printPercent(va_list, char [], int, int, int, int);
 int printInt(va_list, char [],
 	int, int, int, int);
 int printBinary(va_list, char [],
